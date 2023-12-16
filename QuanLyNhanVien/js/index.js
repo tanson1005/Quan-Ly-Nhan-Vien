@@ -43,7 +43,7 @@ var employees = [];
       }
       
       function validateFullName(name) {
-        return /^[A-Za-z\s]+$/.test(name);
+        return /^[A-Za-z\u00C0-\u017F\s]+$/.test(name) || /^[\p{L}\s']+$/u.test(name);
       }
       
       function validateEmail(email) {
@@ -153,7 +153,7 @@ var employees = [];
 
         displayEmployeeList();
         alert('Thêm mới thành công!');
-        clearTextInput();
+     
     }
 //!chỉnh sửa nhân viên
     function editEmployee(index) {
@@ -301,6 +301,7 @@ var employees = [];
     }
 
     document.getElementById("btnThemNV").onclick = addEmployee;
+    document.getElementById("btnThem").onclick = clearTextInput;
    
 
     document.getElementById("btnTimNV").onclick = searchEmployee;
